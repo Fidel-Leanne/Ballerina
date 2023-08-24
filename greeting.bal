@@ -4,7 +4,7 @@ string greeting = "hello";
 
 public function main() {
 
-    string subject = "DSA";
+    string subject = "DSA class!";
     io:println(greeting, " ", subject);
 
 }
