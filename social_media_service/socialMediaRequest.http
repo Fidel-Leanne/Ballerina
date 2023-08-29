@@ -1,0 +1,38 @@
+###Create a user 
+
+POST http://localhost:9090/social-media/users
+content-type: application/json
+
+{
+    "name":"mary"
+    "phoneNo":"22222"
+    "DOB":{"year":1289
+        "month":02,
+        "day":02}
+    }
+    Response 201 Created
+    ####Get all users
+    GET http://localhost:9090/social-media/users
+    Response 200 OK
+
+    GET http://localhost:9090/social-media/users/2
+
+    GET http://localhost:9090/social-media//3/posts
+
+    POST  http://localhost:9090/social-media/users/3/posts
+    content-type: application/json
+    
+    {
+        "content": "Hello World!"
+
+    }
+
+    ####Update User
+    PUT http:/localhost:9090/social-media/users/
+    Response 403 Forbidden if the id is not found.
+    ####Delete User
+    DELETE http:/localhost:9090/social-media/users/1
+    #### Create Post
+    #### Get All Posts
+    #### Update post
+
