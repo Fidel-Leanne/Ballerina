@@ -21,7 +21,7 @@ type ErrorDetails record {
 };
 
 type UserNotFound record {|
-    *http:NotFound;
+    *http:BadRequest;
     ErrorDetails body;
 |};
 
@@ -33,10 +33,6 @@ type NewUser record {|
 |};
 
 service /social\-media on new http:Listener(9090) {
-    resource function get users() returns User[]|error {
-
-        return users.toArray();
-    }
 
     resource function get users/[int id]() returns UserNotFound|User {
 
@@ -51,7 +47,7 @@ service /social\-media on new http:Listener(9090) {
         return user;
     }
 
-    resource function post users(NewUser newUser) returns http:Created|error {
+    resource function post users(@http:Payload NewUser newUser) returns http:Created|error {
 
         users.add({id: users.length() + 1, ...newUser});
         return http:CREATED;
